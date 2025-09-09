@@ -1,0 +1,72 @@
+.container {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background-color);
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+#title{
+    font-size:2rem;
+    text-align: center;
+    padding: 0 1rem;
+    margin-bottom: 3rem;
+}
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border: none;
+    font-size: 16px;
+}
+.inputform, .loginButton{
+    height: 50px;
+    min-width: 555px;
+    /* max-width: 555px; */
+}
+.inputform{
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: none;
+    color: var(--textgray-color);
+    box-sizing: border-box;
+    padding-left:35px;
+}
+.inputform:focus{
+    border:none;
+    outline: none;
+}
+.loginButton{
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.loginButton{
+    border:none;
+}
+.loginButton:hover {
+    filter: brightness(0.95);
+}
+
+.signup{
+    text-align: center;
+    display: flex;
+    gap:5px;
+    padding: 20px 0;
+}
+.signup_link{
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+.signup_link, .signup_sentanse{
+    font-size: 1rem;
+}
