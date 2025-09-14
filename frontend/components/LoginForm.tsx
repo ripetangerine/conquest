@@ -19,11 +19,6 @@ export default function LoginForm({
     onSubmit?.(e);
   };
 
-  /**
-   * onSubmit, defaultValues, submitLabel, footerSlot(또는 children) 등으로 유연성 확보하면 회원가입/로그인 양쪽에서 변형이 쉬워집니다.
-   * 
-   */
-
   return (
     <div className={styles.container}>
       <div id={styles.title}>{title}</div>

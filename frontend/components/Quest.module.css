@@ -1,0 +1,13 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+.temp{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.titles{
+  display: flex;
+  flex-direction: column;
+}
