@@ -1,0 +1,32 @@
+.page{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.quest{
+  display: flex;
+  flex-direction: column;
+}
+
+/* 메인 타이틀 */
+.quest_title, .posts_title{
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+/* 메인 타이틀의 설명글 */
+.quest_subtitle{
+  font-size: 1.5rem;
+}
+/* 서브 타이틀 */
+.quest_daily_title, .quest_weekly_title{
+  font-size: 1.3rem;
+}
+
+/* 퀘스트 리스트 */
+.quest_daily_list, .quest_weekly_list{
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  align-items: center;
+  /* justify-content: ; */
+}
