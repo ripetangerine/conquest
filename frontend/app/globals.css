@@ -9,3 +9,17 @@
   margin: 0; 
   background-color: var(--background-color);
 }
+.veil{
+  position: relative;
+  display: block;
+  overflow:hidden;
+}
+.veil::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0, var(--veil-alpha, .6));
+  pointer-events: none;
+  border-radius: inherit;
+  border: none;
+}

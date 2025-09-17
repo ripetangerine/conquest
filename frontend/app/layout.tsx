@@ -1,5 +1,6 @@
 import type { Metadata} from "next";
 import Link from "next/link";
+import Image from "next/image"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -31,10 +32,24 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
       <nav className="navigation">
           <div className="logo"><Link href={"/"}>conquest</Link></div>
-          <ul className="nav_list">
-            <li><Link href="/articles">글 작성</Link></li>
-            <li><Link href="/contact">마이페이지</Link></li>
-          </ul>
+          <div className="nav_list">
+            <div className="nav_item">
+              <Link href="/posts/new">
+                <div className="nav_contant">
+                  <Image src="/assets/nav_2.png" alt="navpng2"/>
+                  <div>글 작성</div>
+                </div>
+              </Link>
+            </div>
+            <div className="nav_item">
+              <Link href="/mypage">
+                <div className="nav_contant">
+                  <Image src="/assets/nav_1.png" alt="navpng1"/>
+                  <div>마이페이지</div>
+                </div>
+              </Link>
+            </div>
+          </div>
         </nav>
         <main>{children}</main>
       </body>
