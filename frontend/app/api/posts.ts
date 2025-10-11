@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// 가짜 DB 조회
 async function getPostById(id: string) {
-  // 실제로는 DB에서 fetch
+  // DB처리
   return {
     id,
     title: "기존 제목",
@@ -12,7 +11,8 @@ async function getPostById(id: string) {
   };
 }
 
-// 가짜 저장
+// 저장 로직
+// TODO: DB 업데이트 구현
 async function updatePost(id: string, data: {
   title?: string;
   content?: string;
@@ -22,7 +22,6 @@ async function updatePost(id: string, data: {
   // 삭제할 기존 URL들
   removeImages?: string[];
 }) {
-  // TODO: DB 업데이트 구현
   return { ok: true };
 }
 

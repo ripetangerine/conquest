@@ -1,0 +1,33 @@
+/* navigation */
+.navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  height: 64px;
+  position: sticky;
+  top: 0;
+}
+/* nav 버튼 클릭시 클래스 추가*/
+.nav_veil{ 
+  filter: grayscale(80%);
+}
+.nav_item{
+  object-fit: contain;
+  width: 7rem; /*112px*/
+  height: auto;
+}
+.logo{
+  color: var(--text-color);
+}
+.logo a{
+  text-decoration: none;
+  color: inherit;        
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.nav_list{
+  display: flex;
+  flex-direction: row;
+}
+

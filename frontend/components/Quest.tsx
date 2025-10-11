@@ -1,6 +1,8 @@
 import Image from "next/image";
-import styles from "Quest.module.css"
+import styles from "./Quest.module.css"
 
+// LATER : 추후 퀘스트 누르면 해당 이벤트로 이동하는 기능 구현
+// TODO : 
 
 interface QuestProps{
   questType:string,
@@ -17,18 +19,34 @@ export default function Quest({
   done = false,
 }: QuestProps){
   return(
-    <div className={styles.containter}>
+    <div className={styles.container}>
       {/*  */}
-      <div className={styles.temp}>
-        <Image className={styles.img} src="" alt=""/>
-        <div className={styles.titles}>
-          <div className={styles.quest_name}>{title}</div>
-          <div className={styles.quest_name}>{subtitle}</div>
-        </div>
+      <Image 
+        className={styles.icon_img} 
+        src="/asset/quest_post_icon.png" 
+        alt="quest_icon" 
+        width={60}
+        height={60}
+      />
+      <div className={styles.titles}>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.subtitle}>{subtitle}</div>
       </div>
       {done?
-        <Image className={styles.check} src="" alt="done"/>:
-        <Image className={styles.check} src="" alt="no-done"/>}
+        <Image 
+          className={styles.check} 
+          src="/asset/quest_done.png" 
+          alt="done"
+          width={60}
+          height={60}
+        />: 
+        <Image 
+          className={styles.check} 
+          src="/asset/quest_not_done.png" 
+          alt="notDone" 
+          width={60}
+          height={60}
+        />}
     </div>
   );
 }

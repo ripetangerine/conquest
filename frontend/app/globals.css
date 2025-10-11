@@ -1,3 +1,4 @@
+/* default global */
 :root{
   --background-color: #002440;
   --primary-color: #0068B7; 
@@ -8,11 +9,15 @@
 *{
   margin: 0; 
   background-color: var(--background-color);
+  color: var(--text-color);
+}
+body{
+  padding: 0 4rem;
 }
 .veil{
   position: relative;
   display: block;
-  overflow:hidden;
+  overflow:hidden;  
 }
 .veil::after{
   content: "";

@@ -1,4 +1,4 @@
-import styles from "Post.module.css"
+import styles from "./Post.module.css"
 import Image from "next/image"
 import _like from "@/asset/like.png"
 import _share from "@/asset/share.png"
@@ -8,7 +8,7 @@ interface PageProps{
   post_writer : string,
 }
 
-export function Post({
+export default function Post({
   post_title,
   post_writer,
 } : PageProps){
