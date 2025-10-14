@@ -16,19 +16,31 @@ export class Post{
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    nullable: false,
+  })
   authorId: number;
 
-  @Column()
+  @Column({
+    nullable: false,
+  })
   title: string;
 
-  @Column('text')
+  @Column('text',{
+    nullable: false,
+  })
   content: string;  // 긴 문자열, HTML 태그 처리
 
-  @Column({default : 0})
+  @Column({
+    default : 0,
+    nullable: false,
+  })
   likeCount: number;
   
-  @Column({default : 0})
+  @Column({
+    default : 0,
+    nullable: false,
+  })
   shareCount: number;
 
   @CreateDateColumn()

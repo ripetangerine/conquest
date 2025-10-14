@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeormConfig } from './config/typeorm.config';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { TypeormConfig } from './config/typeorm.config';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: TypeormConfig,
-    })
+    }),
+    PostModule
   ],
   controllers: [AppController],
   providers: [AppService],

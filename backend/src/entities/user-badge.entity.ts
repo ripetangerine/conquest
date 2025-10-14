@@ -6,7 +6,7 @@ export class userBadge{
   @PrimaryGeneratedColumn()
   userId: number;
 
-  @Column()
+  @Column() // 모델 구축 후 nullable 설정
   badgeId: number;
 
   @ManyToOne(()=>User, (user)=>user.id)

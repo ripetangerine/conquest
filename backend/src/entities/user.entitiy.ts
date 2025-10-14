@@ -13,19 +13,26 @@ export class User{
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   userImage: string;
 
   @Column({
     length: 10,
-    unique: true
+    unique: true,
+    nullable: false,
   })
   username: string;
 
-  @Column()
+  @Column({
+    nullable: false,
+  })
   password: string; 
 
-  @Column()
+  @Column({
+    nullable: false,
+  })
   level: string; // 넘버형 
 
   @Column()
