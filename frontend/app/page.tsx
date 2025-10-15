@@ -38,7 +38,7 @@ export default function Home() {
           <div className={styles.quest_daily}>
             <div className={styles.quest_daily_list}>
               {/* test */}
-              ytj{(Array.from({length:3}, 
+              {(Array.from({length:3}, 
               (_,i)=>i+1)).map((v)=>{
                 return(
                   <Quest 
