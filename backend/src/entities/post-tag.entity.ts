@@ -6,7 +6,10 @@ export class PostTag {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    type: 'int',
+    nullable: false,
+  })
   tagId: number;
 
   @ManyToOne(() => Post, (post) => post.tags)

@@ -17,39 +17,53 @@ export class Post{
   id: number;
 
   @Column({
+    type: 'int',
     nullable: false,
   })
   authorId: number;
 
   @Column({
+    type: 'text',
     nullable: false,
   })
   title: string;
 
-  @Column('text',{
+  @Column({
+    type: 'text',
     nullable: false,
   })
   content: string;  // 긴 문자열, HTML 태그 처리
 
   @Column({
+    type: 'int',
     default : 0,
     nullable: false,
   })
   likeCount: number;
   
   @Column({
+    type: 'int',
     default : 0,
     nullable: false,
   })
   shareCount: number;
 
-  @CreateDateColumn()
+  @CreateDateColumn({
+    type: 'date',
+    nullable: false
+  })
   createAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({
+    type: 'date',
+    nullable: false
+  })
   updateAt: Date;
 
-  @DeleteDateColumn()
+  @DeleteDateColumn({
+    type: 'date',
+    nullable: true
+  })
   deleteAt: Date;
 
   @OneToMany(() => PostImage, (image) => image.post)

@@ -6,7 +6,10 @@ export class PostImage {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: false
+  })
   url: string;
 
   @ManyToOne(() => Post, (post) => post.images)
