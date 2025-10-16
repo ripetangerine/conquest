@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
+  margin-bottom: 20px;
 }
 /* nav 버튼 클릭시 클래스 추가*/
 .nav_veil{ 
