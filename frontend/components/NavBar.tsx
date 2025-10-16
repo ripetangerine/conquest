@@ -1,57 +1,48 @@
 "use client"
 import React, {useState, useEffect} from "react";
-import axios from "axios";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./NavBar.module.css";
+
+import WritingIcon from "@/public/asset/writing_icon.svg";
+import MypageIcon from "@/public/asset/mypage_icon.svg";
 
 
 export default function NavBar() {
   const [isLogin, setIsLogin] = useState<boolean>(true);
   
   // useEffect(()=>{
-  //   axios.get('@/api/login')
+  //   fetch('/api/login')
   //     .then((response) => {
   //       // TODO : data 에서 로그인 여부만 훅으로 설정
-  //       setIsLogin(response.data)
+  //       return response.json()
   //     })
-      
-  // },[setIsLogin])
+  //     .then(setIsLogin)
+  // })
 
-  return isLogin ? <Navigation_1/> : <Navigation_2/>;
+  return isLogin ? <NavBar_1/> : <NavBar_0/>;
 }
 
-function Navigation_1() { // 로그인되었을 때 nav
+function NavBar_1() { // 로그인되었을 때 nav
   return (
     <nav className={styles.navigation}>
       <div className={styles.logo}>
         <Link href={"/"}>conquest</Link>
       </div>
       <div className={styles.nav_list}>
-        <Link href="/posts/new">
-          <Image 
-            className={styles.nav_item} 
-            src="/asset/nav_button1_write.png" 
-            alt="navWrite" 
-            width={112}
-            height={45}
-          />
+        <Link href="/posts/new" className={`${styles.no_underline} ${styles.nav_item}`}>
+            <WritingIcon className={`${styles.svgs} ${styles.writing_icon}`}/>
+            <p className={styles.nav_text}>글 작성</p>
         </Link>
-        <Link href="/mypage">
-          <Image 
-            className={styles.nav_item} 
-            src="/asset/nav_button2_mypage.png" 
-            alt="navMypage" 
-            width={112}
-            height={45}
-          />
+        <Link href="/mypage" className={`${styles.no_underline} ${styles.nav_item} ${styles.mypage_button}`}>
+            <MypageIcon className={`${styles.svgs} ${styles.mypage_icon}`}/>
+            <p className={styles.nav_text}>마이페이지</p>
         </Link>
       </div>
     </nav>
   );
 }
 
-function Navigation_2() { // 로그인 안되었을 때
+function NavBar_0() { // 로그인 안되었을 때
   return (
     <nav className={styles.navigation}>
       <div className={styles.logo}>

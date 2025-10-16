@@ -4,21 +4,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 0;
-  height: 64px;
+  height: 90px;
   position: sticky;
   top: 0;
+  border-bottom: solid 1px var(--primary-color);
 }
 /* nav 버튼 클릭시 클래스 추가*/
 .nav_veil{ 
   filter: grayscale(80%);
 }
-.nav_item{
-  object-fit: contain;
-  width: 7rem; /*112px*/
-  height: auto;
-}
 .logo{
-  color: var(--text-color);
+  color: inherit;
 }
 .logo a{
   text-decoration: none;
@@ -29,5 +25,52 @@
 .nav_list{
   display: flex;
   flex-direction: row;
+  color: var(--text-color);
+  gap:10px;
 }
+.nav_item{
+  position: relative;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  color:inherit;
+  background-color: var(--secondary-color);
+  height: 50px;
+  min-width: 130px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+.mypage_button{
+  width: 155px;
+}
+.no_underline{
+  text-decoration: none;
+  color: inherit;
+}
+.nav_text{
+  position: absolute;
+  right: 20px;
+  top: 25%;
+  background-color: var(--secondary-color);
+}
+.svgs{
+  position: absolute;
+  /* transform: translateY(50%); */
+  left:5px;
+  top: 7%;
+  /* margin-right: 15px; */
+}
+.writing_icon{
+  border: none;
+  border-radius: 50%;
+  padding: 7px;
+  background-color: var(--primary-color);
+}
+.mypage_icon{
+  /* background-color: var(--secondary-color); */
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+} 
 
