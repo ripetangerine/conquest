@@ -5,15 +5,19 @@
 }
 .quest{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
-
+.quest_header, .posts_header{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 1.5rem;
+}
 .quest_title, .posts_title{
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 1.5rem;
 }
 .quest_subtitle{
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .quest_daily_title, .quest_weekly_title{
   font-size: 1.3rem;
@@ -21,6 +25,15 @@
 .quest_daily_list, .quest_weekly_list{
   display: flex;
   flex-direction: column;
-  gap: .7rem;
+  gap: .3rem;
   align-items: center;
+}
+
+.posts{
+  margin-top: 50px;
+}
+
+.footer{
+  margin: 100px 0 20px;
+  color: gray;
 }

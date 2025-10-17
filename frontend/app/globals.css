@@ -8,11 +8,11 @@
 }
 *{
   margin: 0; 
-  background-color: var(--background-color);
-  color: var(--text-color);
 }
 body{
+  background-color: var(--background-color);
   padding: 0 4rem;
+  color: var(--text-color);
 }
 .veil{
   position: relative;

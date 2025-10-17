@@ -2,7 +2,6 @@ import Image from "next/image";
 import styles from "./Quest.module.css"
 
 // LATER : 추후 퀘스트 누르면 해당 이벤트로 이동하는 기능 구현
-// TODO : 
 
 interface QuestProps{
   questType:string,

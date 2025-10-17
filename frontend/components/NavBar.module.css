@@ -1,11 +1,13 @@
 /* navigation */
 .navigation{
   display: flex;
+  position: sticky;
+  z-index: 10;
   justify-content: space-between;
+  background-color: var(--background-color);
   align-items: center;
   padding: 0;
-  height: 90px;
-  position: sticky;
+  height: 75px;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
   margin-bottom: 20px;

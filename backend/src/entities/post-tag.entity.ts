@@ -12,6 +12,12 @@ export class PostTag {
   })
   tagId: number;
 
+  @Column({nullable: false})
+  tag: string;
+
+  //태그 검색 api 태그의 id가 추가 
+
+
   @ManyToOne(() => Post, (post) => post.tags)
   post: Post;
 }

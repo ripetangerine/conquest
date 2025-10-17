@@ -1,45 +1,54 @@
+"use client"
+import React, {useState, useEffect} from "react";
+import Link from "next/link";
 import styles from "./Post.module.css"
-import Image from "next/image"
-import _like from "@/asset/like.png"
-import _share from "@/asset/share.png"
 
-interface PageProps{
+import HeartIcon from "@/public/asset/heart_icon.svg";
+import ShareIcon from "@/public/asset/share_icon.svg";
+
+
+interface PostProps{
+  id: number,
   post_title : string,
   post_writer : string,
-}
-
-export default function Post({
-  post_title,
-  post_writer,
-} : PageProps){
-  return(
-    <div className={styles.container}>
-      <div className={styles.title}>{post_title}</div>
-      <div className={styles.writer}>{`by ${post_writer}`}</div>
-      <div>
-        
-      </div>
-    </div>
-  );
-}
-
-interface PostInfoProps{
   post_likes? : number,
   post_shares? : number
 }
 
-export function PostInfo({post_likes = 0, post_shares = 0} : PostInfoProps){
+// 부르는 장소에서 useeffect
+export default function Post(){
+
+  const [data, setData] = useState([]);
+  const [id, setId] = useState<number>();
+  setId(0);
+  //setId(랜덤 알고리즘)
+
+  useEffect(() => {
+    // id기반의 제목, 작가, 평가만 가져오는
+    fetch(`/api/posts`)
+      .then(res => res.json())
+      .then(setData);
+  }, []);
+
   return(
-    <>
-      <div className={styles.likes}>
-            <Image src={"_like"} alt="좋아요"/>
-            {post_likes}
+    <Link 
+      className={styles.container}
+      href={`@/posts/${id}/page.tsx`}
+    >
+      <div className={styles.title}>{data.title}</div>
+      <div className={styles.info}>
+        <div className={styles.writer}>{`by ${data.writer}`}</div>
+        <div className={styles.rate}>
+          <div className={styles.likes}>
+            <HeartIcon className={`${styles.heart_icon} ${styles.postinfo_icons}`}/>
+            {0}
           </div>
           <div className={styles.shares}>
-            <Image src={"_share"} alt="공유"/>
-            {post_shares}
+            <ShareIcon className={`${styles.share_icon} ${styles.postinfo_icons}`}/>
+            {0}
+          </div>
+        </div>
       </div>
-    </>
+    </Link>
   );
 }
-

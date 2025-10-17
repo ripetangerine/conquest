@@ -1,0 +1,28 @@
+.container{
+  display:flex;
+  flex-direction: column;
+  height:80px;
+  width:900px;
+  background-color: #fff;
+  padding: 20px 80px 10px 80px;
+  gap: 10px;
+  color: black;
+  border-radius: 10px;
+  border: none;
+}
+.info{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: black;
+}
+.rate{
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 15px;
+}
+.title{
+  font-size: 1.1rem;
+}
