@@ -7,7 +7,8 @@ import HeartIcon from "@/public/asset/heart_icon.svg";
 import ShareIcon from "@/public/asset/share_icon.svg";
 
 
-interface PostData{
+
+type FetchedDataType = {
   imgUrl: string;
   title: string;
   writer: string;
@@ -19,13 +20,14 @@ interface PostData{
 export default function PostDetail(){
   const {id} = useParams() as {id: string};
 
-  const [data, setData] = useState(null)
+
+  const [data, setData] = useState<FetchedDataType | undefined>(undefined)
   const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
     fetch(`/api/post/${id}`)
       .then(res => res.json())
-      .then((fetchedData: PostData)=>{
+      .then((fetchedData: FetchedDataType)=>{
         setData(fetchedData);
         setLoading(false);
       })
