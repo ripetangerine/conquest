@@ -1,10 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, } from 'typeorm';
 import { Post } from './post.entity';
 
 @Entity()
 export class PostTag {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @Id // 기본 키(Primary Key) 지정
+  @GeneratedValue(strategy = GenerationType.IDENTITY) // ID 자동 생성 전략
+  private Long id; // 엔티티의 핵심 식별자
 
   @Column({
     type: 'int',

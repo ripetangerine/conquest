@@ -1,8 +1,7 @@
 
 
-// 사용자 입력 필드
-// post를 위한 entity 필드 정리
-// id 뺀다. id 뺀다.
+// 응답 DTO, 요청 DTO 각각 사용
+
 
 export class CreatePostDto{
   readonly title: string;
