@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 
 import {PostService} from "./post.service";
-import {PostEntity} from "src/entities/post.entity";
+import {PostEntity} from "src/post/entities/post.entity";
 import { CreatePostDto, UpdatePostDto } from 'src/dto/post.dto';
 
 @Controller('posts')
