@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Post } from './post.entity';
+import { PostEntity } from './post.entity';
 
 @Entity()
-export class PostImage {
+export class PostImageEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -12,6 +12,6 @@ export class PostImage {
   })
   url: string;
 
-  @ManyToOne(() => Post, (post) => post.images)
-  post: Post;
+  @ManyToOne(() => PostEntity, (post) => post.images)
+  post: PostEntity;
 }

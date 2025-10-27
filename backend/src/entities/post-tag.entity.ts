@@ -1,11 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, } from 'typeorm';
-import { Post } from './post.entity';
+import { PostEntity } from './post.entity';
 
 @Entity()
-export class PostTag {
-  @Id // 기본 키(Primary Key) 지정
-  @GeneratedValue(strategy = GenerationType.IDENTITY) // ID 자동 생성 전략
-  private Long id; // 엔티티의 핵심 식별자
+export class PostTagEntity {
+  @PrimaryGeneratedColumn()
+  private id: number; // 엔티티의 핵심 식별자
 
   @Column({
     type: 'int',
@@ -14,11 +13,9 @@ export class PostTag {
   tagId: number;
 
   @Column({nullable: false})
-  tag: string;
-
-  //태그 검색 api 태그의 id가 추가 
+  name: string;
 
 
-  @ManyToOne(() => Post, (post) => post.tags)
-  post: Post;
+  @ManyToOne(() => PostEntity, (post) => post.tags)
+  post: PostEntity;
 }

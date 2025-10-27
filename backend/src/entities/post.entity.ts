@@ -8,11 +8,11 @@ import {
   OneToMany,
 } from 'typeorm';
 
-import {PostImage} from "./post-image.entity";
-import {PostTag} from "./post-tag.entity"; 
+import {PostImageEntity} from "./post-image.entity";
+import {PostTagEntity} from "./post-tag.entity"; 
 
 @Entity()
-export class Post{
+export class PostEntity{
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -66,9 +66,9 @@ export class Post{
   })
   deleteAt: Date;
 
-  @OneToMany(() => PostImage, (image) => image.post)
-  images: PostImage[];
+  @OneToMany(() => PostImageEntity, (image) => image.post)
+  images: PostImageEntity[];
 
-  @OneToMany(() => PostTag, (tag) => tag.post)
-  tags: PostTag[];
+  @OneToMany(() => PostTagEntity, (tag) => tag.post)
+  tags: PostTagEntity[];
 }

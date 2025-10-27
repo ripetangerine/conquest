@@ -1,14 +1,14 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from "./user.entitiy";
+import { UserEntity } from "./user.entitiy";
 
 @Entity()
-export class userBadge{
+export class UserBadgeEntity{
   @PrimaryGeneratedColumn()
   userId: number;
 
   @Column() // 모델 구축 후 nullable 설정
   badgeId: number;
 
-  @ManyToOne(()=>User, (user)=>user.id)
-  user: User;
+  @ManyToOne(()=>UserEntity, (user)=>user.id)
+  user: UserEntity;
 }
