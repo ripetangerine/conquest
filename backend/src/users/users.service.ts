@@ -11,8 +11,8 @@ export class UsersService {
     @InjectRepository(UserEntity)
     private readonly usersRepository: Repository<UserEntity>,
   ){}
-
-  // 사용자 생성
+  
+  // 사용자 생성1
   async create(
     createUserDto: CreateUserDto
   ) : Promise<UserEntity>{
@@ -25,6 +25,14 @@ export class UsersService {
       return await this.usersRepository.findOneOrFail({where: {id}});
     }catch{
       throw new NotFoundException(`not found user id : ${id}`);
+    }
+  }
+
+  async findByEmail(email: string) : Promise<UserEntity> {
+    try{
+      return await this.usersRepository.findOneOrFail({where: {email}});
+    }catch(error){
+      throw new Error(`이메일로 계정을 찾을 수없습니다 : ${error}`);
     }
   }
 
