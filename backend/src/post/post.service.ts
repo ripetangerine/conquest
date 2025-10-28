@@ -6,7 +6,6 @@ import { PostEntity } from './entities/post.entity';
 import { PostImageEntity} from './entities/post-image.entity';
 import { PostTagEntity } from './entities/post-tag.entity';
 import { CreatePostDto } from 'src/dto/post.dto';
-import { url } from 'inspector';
 
 @Injectable()
 export class PostService {
@@ -15,25 +14,25 @@ export class PostService {
     private PostRepository: Repository<PostEntity>,
 
     @InjectRepository(PostImageEntity)
-    private ImageRepository: Repository<PostImageEntity>,
+    private PostImageEntityRepository: Repository<PostImageEntity>,
 
     @InjectRepository(PostTagEntity)
-    private TagRepository: Repository<PostTagEntity>,
-  ) { }
+    private PostTagEntityRepository: Repository<PostTagEntity>,
+  ) {}
 
   async create(dto: CreatePostDto){
     const {title, content, images, tagNames} = dto;
    
     const tags = await Promise.all(
       tagNames.map(async (name)=>{
-        let tag = await this.TagRepository.findOne({where: {name}});
-        if(!tag) tag = this.TagRepository.create({name});
+        let tag = await this.PostTagEntityRepository.findOne({where: {name}});
+        if(!tag) tag = this.PostTagEntityRepository.create({name});
         return tag;
       }),
     )
 
     const imageEntites = images.map((url) =>
-      this.ImageRepository.create({url}),
+      this.PostImageEntityRepository.create({url}),
     )
 
     const post = this.PostRepository.create({
@@ -45,7 +44,7 @@ export class PostService {
 
     return await this.PostRepository.save(post);
 
-  }
+  } // create
 
   // 게시글 전체 조회
   async findAll(): Promise<PostEntity[]> {
@@ -75,18 +74,18 @@ export class PostService {
 
     const tags = await Promise.all(
       tagNames.map(async (name)=>{
-        let tag = await this.TagRepository.findOne({where: {name}});
+        let tag = await this.PostTagEntityRepository.findOne({where: {name}});
         if(!tag){
-          tag = this.TagRepository.create({name});
-          await this.TagRepository.save(tag);
+          tag = this.PostTagEntityRepository.create({name});
+          await this.PostTagEntityRepository.save(tag);
         }
         return tag;
       })
     )
 
-    await this.ImageRepository.delete({post: {id}});
+    await this.PostImageEntityRepository.delete({post: {id}});
     const imageEntites = images.map((url) =>
-      this.ImageRepository.create({url, post})
+      this.PostImageEntityRepository.create({url, post})
     );
 
     post.title = title;
