@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { PostEntity } from './entities/post.entity';
 import { PostImageEntity} from './entities/post-image.entity';
 import { PostTagEntity } from './entities/post-tag.entity';
-import { CreatePostDto } from 'src/dto/post.dto';
+import { CreatePostDto } from 'src/post/dto/post.dto';
 
 @Injectable()
 export class PostService {

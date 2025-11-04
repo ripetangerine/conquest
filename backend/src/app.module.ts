@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PostModule } from './post/post.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { QuestModule } from './quest/quest.module';
 
 @Module({
   imports: [
@@ -31,7 +32,8 @@ import { AuthModule } from './auth/auth.module';
     }),
     PostModule,
     UsersModule,
-    AuthModule
+    AuthModule,
+    QuestModule
   ],  
   controllers: [AppController],
   providers: [AppService],

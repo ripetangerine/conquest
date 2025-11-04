@@ -11,7 +11,7 @@ import {
 
 import {PostService} from "./post.service";
 import {PostEntity} from "src/post/entities/post.entity";
-import { CreatePostDto, UpdatePostDto } from 'src/dto/post.dto';
+import { CreatePostDto, UpdatePostDto } from 'src/post/dto/post.dto';
 
 @Controller('posts')
 export class PostController {
