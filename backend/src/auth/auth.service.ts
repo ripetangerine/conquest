@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
-import { LoginDto } from 'src/auth/dto/login.dto';
+import { AuthDto } from './dto/auth.dto';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -12,8 +12,8 @@ export class AuthService {
   ){}
 
   // 로긴 처리
-  async login(loginDto: LoginDto): Promise<{accessToken:string}>{
-    const {email, password} = loginDto;
+  async login(authDto: AuthDto): Promise<{accessToken:string}>{
+    const {email, password} = authDto;
     const user = await this.usersService.findByEmail(email);
     if(!user){
       throw new UnauthorizedException('존재하지 않는 사용자 에러');
