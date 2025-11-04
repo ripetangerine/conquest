@@ -6,6 +6,7 @@ import { AuthDto } from './dto/auth.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  // -> api/auth/login 경로로 요청을 받음
   @Post('login')
   async login(@Body() authDto: AuthDto){
     return this.authService.login(authDto);

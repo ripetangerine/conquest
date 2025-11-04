@@ -27,7 +27,6 @@ import { QuestModule } from './quest/quest.module';
         // TODO : typeORM 에서 관리하는 entity 명시
         entities: [__dirname +  '/**/*.entity.ts'],
         synchronize: true,
-        // autoLoadEntities: true,
         retryAttempts: 1,
       }),
     }),
