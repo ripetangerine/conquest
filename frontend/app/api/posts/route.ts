@@ -1,10 +1,12 @@
 
 // -> /api/post/route
+// 포스트 제목 반환
 
 import { NextResponse } from 'next/server';
 
 // NestJS 서버의 기본 URL
 // const NEST_BASE_URL = 'http://localhost:3001';
+const server_url = process.env.NEST_BASE_URL;
 
 type RequestProps = {
   url:string,
@@ -16,7 +18,7 @@ export async function GET(request : RequestProps) {
   const url = new URL(request.url);
   const path = url.pathname.replace('/api', '');  // nest 에 전달할 경로 -> /posts
 
-  const requestURL = `${process.env.BACKEND_URL}${path}`; 
+  const requestURL = `${server_url}${path}`; 
 
 
   try {
@@ -36,7 +38,7 @@ export async function GET(request : RequestProps) {
   } catch (error) {
     console.error('Proxy Error:', error);
     return NextResponse.json(
-      { message: 'NestJS 서버에 연결할 수 없거나 요청 처리 중 오류 발생' }, 
+      { message: 'post 프록시 요청 에러' }, 
       { status: 500 }
     );
   }
