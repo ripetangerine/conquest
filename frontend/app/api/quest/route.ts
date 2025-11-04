@@ -4,7 +4,7 @@ import { NextResponse} from 'next/server';
 const server_url = process.env.NEST_BASE_URL; // 백엔드 서버 주소 
 
 // 변경 가능성 있음
-type RequestProps = {
+export type RequestProps = {
   url:string,
   method:string,
   headers: HeadersInit,

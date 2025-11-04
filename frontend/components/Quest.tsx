@@ -1,9 +1,12 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 import styles from "./Quest.module.css";
 
-// LATER : 추후 퀘스트 누르면 해당 이벤트로 이동하는 기능 구현
+import {RequestProps} from "@/app/api/quest/route";
+
+
+// TODO : 추후 퀘스트 누르면 해당 이벤트로 이동하는 기능 구현
 
 interface QuestProps{
   questType:string,
@@ -15,7 +18,7 @@ interface QuestProps{
 export default function Quest(){
   // useEffect 사용 해서 값 불러온 다음 넣어서 반환
 
-  const [questList, setQuestList] = useState();
+  const [questList, setQuestList] = useState<RequestProps[]>([]);
   // const [product, setProduct] = useState<{ name: string; price: number } | null>(null);
 
   const questHandler = async () =>{
@@ -26,14 +29,28 @@ export default function Quest(){
       setQuestList(data);
     } catch (error) {
       console.error(error);
-      alert(`퀘스트 불러오기에 실패했습니다. : ${error}`);
+      alert(`퀘스트 불러오기에 실패했습니다. 관리자 곽자경에게 문의해주세요 : ${error}`);
     }
   }
+
+  useEffect(() => {
+    questHandler(); 
+  }, []); 
 
   return (
     <div>
       {
-
+        questList.map((e, i) => {
+          return(
+            // debug
+            <QuestItem
+              key = {i}
+              questType = {""}
+              title = {""}
+              subtitle = {""}
+            />
+          )
+        })
       }
     </div>
   )
