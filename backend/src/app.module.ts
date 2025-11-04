@@ -6,8 +6,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PostModule } from './post/post.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { TypeormConfig } from './config/typeorm.config';
-import { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -18,19 +16,27 @@ import { DataSource } from 'typeorm';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: TypeormConfig,
+      useFactory: (configService: ConfigService) => ({
+        type: 'mysql',
+        host: configService.get<string>('DB_HOST'),
+        port: configService.get<number>('DB_PORT'),
+        username: configService.get<string>('DB_USERNAME'),
+        password: configService.get<string>('DB_PASSWORD'),
+        database: configService.get<string>('DB_DATABASE'),
+        entities: [__dirname +  '/**/*.entity.ts'],
+        synchronize: true,
+        // autoLoadEntities: true,
+        retryAttempts: 1,
+      }),
     }),
     PostModule,
     UsersModule,
     AuthModule
-  ],
+  ],  
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {
-  constructor(
-    private dataSource: DataSource,
-  ){}
 }
 
 

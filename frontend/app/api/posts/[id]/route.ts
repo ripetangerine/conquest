@@ -8,7 +8,7 @@ async function getPostById(id: string) {
     content: "내용",
     tags: ["nextjs", "react"],
     images: ["/uploads/a.jpg", "/uploads/b.jpg"], 
-  };
+  };  
 }
 
 // 저장 로직
