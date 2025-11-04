@@ -3,22 +3,21 @@ import { useState, useEffect } from 'react';
 import Image from "next/image";
 import styles from "./Quest.module.css";
 
-import {RequestProps} from "@/app/api/quest/route";
-
 
 // TODO : 추후 퀘스트 누르면 해당 이벤트로 이동하는 기능 구현
 
-interface QuestProps{
+export type QuestProps = {
   questType:string,
   title: string,
   subtitle : string,
+  reward_xp: number,
   done?: boolean
 }
 
 export default function Quest(){
   // useEffect 사용 해서 값 불러온 다음 넣어서 반환
 
-  const [questList, setQuestList] = useState<RequestProps[]>([]);
+  const [questList, setQuestList] = useState<QuestProps[]>([]);
   // const [product, setProduct] = useState<{ name: string; price: number } | null>(null);
 
   const questHandler = async () =>{
@@ -45,9 +44,10 @@ export default function Quest(){
             // debug
             <QuestItem
               key = {i}
-              questType = {""}
-              title = {""}
-              subtitle = {""}
+              questType = {e.questType}
+              title = {e.title}
+              subtitle = {e.subtitle}
+              reward_xp={e.reward_xp}
             />
           )
         })
@@ -55,7 +55,6 @@ export default function Quest(){
     </div>
   )
 }
-
 
 
 /** Quest line fn -> questType, title, subtitle, done */
@@ -70,7 +69,10 @@ function QuestItem({
       {/*  */}
       <Image 
         className={styles.icon_img} 
-        src="/asset/quest_post_icon.png" 
+        src={
+          questType === 'post' ?
+          "/asset/quest_post_icon.png" : ""
+        } 
         alt="quest_icon" 
         width={60}
         height={60}

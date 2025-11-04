@@ -1,8 +1,8 @@
 import {NextResponse} from 'next/server';
 
+// 회원가입
 export async function POST(req: Request){
   const body = await req.json();
-
   try{
     //서버의 응답
     const res = await fetch(
@@ -27,3 +27,12 @@ export async function POST(req: Request){
   }
 }
 
+// 로그인
+export async function GET(req: Request){
+  
+  try{
+
+  } catch(error){
+    
+  }
+}

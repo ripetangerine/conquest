@@ -1,5 +1,6 @@
 
 import { NextResponse} from 'next/server';
+import Quest, { QuestProps } from '@/components/Quest';
 
 const server_url = process.env.NEST_BASE_URL; // 백엔드 서버 주소 
 
@@ -18,6 +19,7 @@ export async function GET(request : RequestProps){
   const requestURL = `${server_url}${path}` // 요청할 url 풀네임
 
   try{
+    // 요청한 데이터
     const response = await fetch(requestURL, {
       method: request.method,
       headers: request.headers,
