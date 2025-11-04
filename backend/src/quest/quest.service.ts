@@ -1,26 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { CreateQuestDto } from './dto/create-quest.dto';
-import { UpdateQuestDto } from './dto/update-quest.dto';
+import { DataSource } from 'typeorm';
 
 @Injectable()
 export class QuestService {
-  create(createQuestDto: CreateQuestDto) {
-    return 'This action adds a new quest';
+  constructor(private dataSource: DataSource) {}
+
+  // 전체 목록 조회
+  async findAll() {
+    const query = 'SELECT id, title, content, reward_xp FROM quests';
+    const [rows] = await this.dataSource.query(query);
+    return rows;
   }
 
-  findAll() {
-    return `This action returns all quest`;
-  }
+  // 특정 id로 조회
+  async findOne(id: string) {
+    const query = 'SELECT id, title, content, reward_xp FROM quests WHERE id = ?';
+    const [rows] = await this.dataSource.query(query, [id]);
 
-  findOne(id: number) {
-    return `This action returns a #${id} quest`;
-  }
-
-  update(id: number, updateQuestDto: UpdateQuestDto) {
-    return `This action updates a #${id} quest`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} quest`;
+    // 결과가 없으면 null 반환
+    return rows?.[0] || null;
   }
 }

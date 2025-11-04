@@ -1,34 +1,24 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { QuestService } from './quest.service';
-import { CreateQuestDto } from './dto/create-quest.dto';
-import { UpdateQuestDto } from './dto/update-quest.dto';
 
 @Controller('quest')
 export class QuestController {
   constructor(private readonly questService: QuestService) {}
 
-  @Post()
-  create(@Body() createQuestDto: CreateQuestDto) {
-    return this.questService.create(createQuestDto);
-  }
-
+  // 전체 목록
   @Get()
-  findAll() {
-    return this.questService.findAll();
+  async getAll() {
+    const quests = await this.questService.findAll();
+    return quests; // JSON 자동 변환
   }
 
+  // 단일 퀘스트
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.questService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateQuestDto: UpdateQuestDto) {
-    return this.questService.update(+id, updateQuestDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.questService.remove(+id);
+  async getOne(@Param('id') id: string) {
+    const quest = await this.questService.findOne(id);
+    if (!quest) {
+      return { message: '해당 퀘스트를 찾을 수 없습니다.' };
+    }
+    return quest;
   }
 }
