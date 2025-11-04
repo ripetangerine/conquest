@@ -24,6 +24,7 @@ import { QuestModule } from './quest/quest.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_DATABASE'),
+        // TODO : typeORM 에서 관리하는 entity 명시
         entities: [__dirname +  '/**/*.entity.ts'],
         synchronize: true,
         // autoLoadEntities: true,
@@ -39,6 +40,7 @@ import { QuestModule } from './quest/quest.module';
   providers: [AppService],
 })
 export class AppModule {
+  // 
 }
 
 
