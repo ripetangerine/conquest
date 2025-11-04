@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   async rewrites(){
     return[
       {
+        // cors 정책 우회
         source: '/api/:path*', 
         destination: `${process.env.BACKEND_URL}/:path*` 
       }
