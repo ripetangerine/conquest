@@ -1,5 +1,7 @@
 ⭐퀘스트형 글쓰기 & 빠른 글소비 게시판 "conquest" 프로젝트
-<br /><br />
+<br />
+<br />
+
 > ### 프로젝트 소개 📖
 글을 쓰고, **숏폼과 같이 빠르게 읽는 과정**을 통해서 글을 미디어 소비 대체제로 이용하기 위한 프로젝트입니다.
 <br />
@@ -22,15 +24,25 @@ figma(link : ""), Notion(link : "none")
 
 > ### 설치 방법 ⛏️
 **Next.js**
-`npx create-next-app@latest`
-`npm run dev`
-**Nest.js**
-`npm install -g @nestjs/cli`
-`npm g resource [리소스명]`
-`npm run start:dev`
-**MySQL**
-`MySQL Workbench 로컬 DB 사용`
-**.env file element**
+<br />
+`npx create-next-app@latest` 
+<br />
+`npm run dev` 
+<br /><br />
+**Nest.js** 
+<br />
+`npm install -g @nestjs/cli` 
+<br />
+`npm g resource [리소스명]` 
+<br />
+`npm run start:dev` 
+<br /><br />
+**MySQL** 
+<br />
+`MySQL Workbench 로컬 DB 사용` 
+<br /><br />
+**.env file element** 
+<br />
 nest -> appModule에 정의되어 있습니다.
 ```
 DB_HOST=
